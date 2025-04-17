@@ -24,8 +24,4 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --configuration production
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages # target branch
-          folder: dist/mockdemo # output folder (adjust as per your angular.json)
+   
