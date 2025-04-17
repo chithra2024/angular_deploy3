@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Angular app into docs/
         run: |
-          npx ng build --output-path=docs --base-href=/mockdemo/
+          npx ng build --output-path=docs --base-href=https://chithra2024.github.io/angular_deploy3/
       
       - name: Configure Git
         run: |
