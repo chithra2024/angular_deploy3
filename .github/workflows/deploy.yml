@@ -1,12 +1,12 @@
-name: Build and Deploy to GitHub Pages
+name: Build and Commit Angular App to main/docs
 
 on:
   push:
     branches:
-      - main  # Or your default branch
+      - main
 
 jobs:
-  build-deploy:
+  build-and-commit:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,12 +21,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Angular app
-        run: npm run build -- --configuration production
+      - name: Build Angular app into docs/
+        run: |
+          npx ng build --output-path=docs --base-href=/your-repo-name/
 
-      - name: Deploy to GitHub Pages (gh-pages branch)
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.DELSEC }}
-          publish_dir: ./dist/mockdemo
-          publish_branch: gh-pages
+      - name: Commit and push built files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git commit -m "Auto: build Angular app to docs [skip ci]" || echo "No changes to commit"
+          git push origin main
