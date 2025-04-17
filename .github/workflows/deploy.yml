@@ -32,15 +32,15 @@ jobs:
           npx ng build --output-path=docs --base-href=https://chithra2024.github.io/angular_deploy3/
 
       # Uncomment if you want to auto-commit the docs after build
-      # - name: Configure Git
-      #   run: |
-      #     git config user.name "chithra2024"
-      #     git config user.email "chithrasaravanan2024@gmail.com"
+      - name: Configure Git
+        run: |
+          git config user.name "chithra2024"
+          git config user.email "chithrasaravanan2024@gmail.com"
 
-      # - name: Commit and push built files
-      #   run: |
-      #     git add docs
-      #     git commit -m "Build Angular app and update docs directory" || echo "No changes to commit"
-      #     git push origin main
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.DELSEC }}
+      - name: Commit and push built files
+        run: |
+          git add docs
+          git commit -m "Build Angular app and update docs directory" || echo "No changes to commit"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.DELSEC }}
