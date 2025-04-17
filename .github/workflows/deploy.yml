@@ -23,12 +23,12 @@ jobs:
 
       - name: Build Angular app into docs/
         run: |
-          npx ng build --output-path=docs --base-href=/your-repo-name/
+          npx ng build --output-path=docs --base-href=/mockdemo/
 
       - name: Commit and push built files
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "chithra2024"
+          git config user.email "chithrasaravanan2024@gmail.com"
           git add docs
           git commit -m "Auto: build Angular app to docs [skip ci]" || echo "No changes to commit"
           git push origin main
