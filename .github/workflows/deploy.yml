@@ -34,7 +34,7 @@ jobs:
         run: |
           git add docs
           git commit -m "Build Angular app and update docs directory" || echo "No changes to commit"
-          git push origin main
+          git push origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.DELSEC }}
 
