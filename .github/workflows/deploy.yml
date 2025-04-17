@@ -3,7 +3,7 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # or master if that’s your default branch
+      - main  # Or your default branch
 
 jobs:
   build-deploy:
@@ -24,4 +24,9 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --configuration production
 
-   
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/mockdemo
+          publish_branch: gh-pages
