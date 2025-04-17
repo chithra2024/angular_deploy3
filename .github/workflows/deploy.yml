@@ -27,7 +27,7 @@ jobs:
       
       - name: Configure Git
         run: |
-          git config user.name "chithra2025"
+          git config user.name "chithra2024"
           git config user.email "chithrasaravanan2024@gmail.com"
 
       - name: Commit and push built files
